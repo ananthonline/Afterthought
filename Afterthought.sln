@@ -62,6 +62,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "Examples
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afterthought.Amender", "Afterthought.Amender\Afterthought.Amender.csproj", "{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B34412C6-C614-4F15-8499-CE34F88E4789}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 13
@@ -151,8 +158,8 @@ Global
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.CompilerOnly|x86.ActiveCfg = Release|x86
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.CompilerOnly|x86.Build.0 = Release|x86
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|Win32.ActiveCfg = Debug|x86
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|x86.ActiveCfg = Debug|x86
 		{0857EBD2-0AE9-4FE2-B9D9-E3D5F924F0F0}.Debug|x86.Build.0 = Debug|x86
@@ -613,8 +620,8 @@ Global
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.CompilerOnly|x86.ActiveCfg = NotifyPropertyChanged|x86
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.CompilerOnly|x86.Build.0 = NotifyPropertyChanged|x86
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|Win32.ActiveCfg = Debug|x86
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|x86.ActiveCfg = Debug|x86
 		{FF39EADC-9D3C-40EB-A0EA-60C76C560D54}.Debug|x86.Build.0 = Debug|x86
