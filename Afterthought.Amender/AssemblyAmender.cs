@@ -55,7 +55,7 @@ namespace Afterthought.Amender
 				}
 			}
 
-			this.typeAmendments = typeAmendments.ToDictionary(w => w.Type.FullName);
+            this.typeAmendments = typeAmendments.GroupBy(t => t.Type.FullName).Select(grp => grp.First()).ToDictionary(w => w.Type.FullName);
 			iTypeAmendment = ResolveType(typeof(ITypeAmendment));
 			iAmendmentAttribute = ResolveType(typeof(IAmendmentAttribute));
 		}
@@ -142,7 +142,23 @@ namespace Afterthought.Amender
 			ITypeAmendment typeAmendment;
 			typeAmendments.TryGetValue(GetTypeName(type), out typeAmendment);
 
-			// Exit immediately if the type is not being amended
+            if ((typeAmendment == null) && (type.Interfaces != null))
+                foreach (var intf in type.Interfaces)
+                {
+                    typeAmendments.TryGetValue(GetTypeName(intf), out typeAmendment);
+                    if (typeAmendment != null)
+                        break;
+                }
+
+		    if ((typeAmendment == null) && (type.BaseClasses != null))
+                foreach (var baseClass in type.BaseClasses)
+                {
+                    typeAmendments.TryGetValue(GetTypeName(baseClass), out typeAmendment);
+                    if (typeAmendment != null)
+                        break;
+                }
+
+		    // Exit immediately if the type is not being amended
 			if (typeAmendment == null)
 			{
 				// Indicate that the type implement ITypeAmendment and should be mutated

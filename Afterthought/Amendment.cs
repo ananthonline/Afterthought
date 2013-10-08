@@ -61,7 +61,7 @@ namespace Afterthought
 
 			// Fields
 			this.Fields = new FieldList();
-			foreach (var fieldInfo in Type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
+			foreach (var fieldInfo in Type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
 			{
 				Type fieldAmendmentType = amendmentType.GetNestedType("Field`1").MakeGenericType(Type, AmendedType, fieldInfo.FieldType);
 				Field field = (Field)fieldAmendmentType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { typeof(FieldInfo) }, null).Invoke(new object[] { fieldInfo });
@@ -82,7 +82,7 @@ namespace Afterthought
 
 			// Properties
 			this.Properties = new PropertyList();
-			foreach (var propertyInfo in Type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
+			foreach (var propertyInfo in Type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
 			{
 				Type propertyAmendmentType = amendmentType.GetNestedType("Property`1").MakeGenericType(Type, AmendedType, propertyInfo.PropertyType);
 				Property property = (Property)propertyAmendmentType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { typeof(PropertyInfo) }, null).Invoke(new object[] { propertyInfo });
@@ -91,7 +91,7 @@ namespace Afterthought
 
 			// Methods
 			this.Methods = new MethodList();
-			foreach (MethodInfo method in typeof(TType).GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+			foreach (MethodInfo method in typeof(TType).GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
 				.Where(m => !m.IsConstructor && !(m.IsSpecialName && m.IsHideBySig && (m.Name.StartsWith("get_") || m.Name.StartsWith("set_")))))
 			{
 				Type[] parameters = GetType().BaseType.GetGenericArguments().Concat(method.GetParameters().Select(p => p.ParameterType)).ToArray();
@@ -104,7 +104,7 @@ namespace Afterthought
 
 			// Events
 			this.Events = new EventList();
-			foreach (var eventInfo in Type.GetEvents(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
+			foreach (var eventInfo in Type.GetEvents(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
 			{
 				Type eventAmendmentType = amendmentType.GetNestedType("Event`1").MakeGenericType(Type, AmendedType, eventInfo.EventHandlerType);
 				Event @event = (Event)eventAmendmentType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { typeof(EventInfo) }, null).Invoke(new object[] { eventInfo });
